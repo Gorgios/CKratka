@@ -1,5 +1,4 @@
 ﻿@model SkijumpingTeams.Models.Jumper
-
 @{
     ViewData["Title"] = "Details";
 }
@@ -12,40 +11,39 @@
     <div class="jumpercont">
         <img src="@Url.Content(Model.PhotoLink)" alt="" height="400" width="300">
         <dl class="row">
-            <dt >
+            <dt>
                 @Html.DisplayNameFor(model => model.FirstName)
             </dt>
-            <dd >
+            <dd>
                 @Html.DisplayFor(model => model.FirstName)
             </dd>
-            <dt >
+            <dt>
                 @Html.DisplayNameFor(model => model.LastName)
             </dt>
-            <dd >
+            <dd>
                 @Html.DisplayFor(model => model.LastName)
             </dd>
-            <dt >
+            <dt>
                 @Html.DisplayNameFor(model => model.PersonalBest)
             </dt>
-            <dd >
-                @Html.DisplayFor(model => model.PersonalBest)
+            <dd pb-helper-value="@Model.PersonalBest">
             </dd>
-            <dt >
+            <dt>
                 @Html.DisplayNameFor(model => model.CarrerWins)
             </dt>
-            <dd >
+            <dd>
                 @Html.DisplayFor(model => model.CarrerWins)
             </dd>
-            <dt >
+            <dt>
                 @Html.DisplayNameFor(model => model.DateOfBirth)
             </dt>
-            <dd >
+            <dd>
                 @Html.DisplayFor(model => model.DateOfBirth)
             </dd>
-            <dt >
+            <dt>
                 @Html.DisplayNameFor(model => model.Team)
             </dt>
-            <dd >
+            <dd>
                 <img src="@Url.Content(Model.Team.PhotoLink)" alt="" height="150" width="250">
             </dd>
         </dl>

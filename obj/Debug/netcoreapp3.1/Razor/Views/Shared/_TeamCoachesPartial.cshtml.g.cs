@@ -27,7 +27,7 @@ using SkijumpingTeams.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"02b7750f3e3a77fea7647d0cc6ccb157508be54d", @"/Views/Shared/_TeamCoachesPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d1392aaab52442b653f027e5d38e4d1542e96502", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"162116b75fe6b4b1461d405340288fc2082b7ea6", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__TeamCoachesPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<SkijumpingTeams.Models.Coach>
     {
         #pragma warning disable 1998
