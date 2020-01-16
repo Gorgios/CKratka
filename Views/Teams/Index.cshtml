@@ -1,41 +1,43 @@
 ﻿@model IEnumerable<SkijumpingTeams.Models.Team>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Teams";
 }
 
-<h1>Index</h1>
+<h1>List of Teams</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create new Team</a>
 </p>
-<table class="table">
+<table class="table table-striped table-dark table-hover">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nation)
+                Flag:
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhotoLink)
+                @Html.DisplayNameFor(model => model.Nation)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhotoLink)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(item.PhotoLink)" alt="" height="120" width="180">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nation)
+                </td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-action="DetailsJumpers" asp-route-id="@item.ID">Jumpers in team</a>
+                    <a type="button" class="btn btn-primary" asp-action="DetailsCoaches" asp-route-id="@item.ID">Coaches in team</a>
+                    <a type="button" class="btn btn-success" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

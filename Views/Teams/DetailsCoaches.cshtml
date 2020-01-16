@@ -1,0 +1,23 @@
+﻿@model SkijumpingTeams.ViewModels.TeamViewModel
+
+@{
+    ViewData["Title"] = "Coaches of team";
+}
+
+<h1>Jumpers of team</h1>
+
+<div>
+    <h4>  @Html.DisplayFor(model => model.Team.Nation)</h4>
+    <hr />
+    <div class="list-of-jumpers">
+        <div class="board">
+            @foreach (var item in Model.Coaches)
+            {
+                @Html.Partial("_TeamCoachesPartial", item);
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

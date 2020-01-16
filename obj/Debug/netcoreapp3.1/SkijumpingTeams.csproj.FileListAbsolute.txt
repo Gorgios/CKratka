@@ -165,7 +165,6 @@ D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Jumpers\Edit.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Jumpers\Index.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\Create.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\Delete.cshtml.g.cs
-D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\Details.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\Edit.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\Index.cshtml.g.cs
 D:\SkijumpingTeams\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
@@ -220,3 +219,7 @@ D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.csht
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TeamJumpersPartial.cshtml.g.cs
+D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MainHeader.cshtml.g.cs
+D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\DetailsCoaches.cshtml.g.cs
+D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\DetailsJumpers.cshtml.g.cs
+D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TeamCoachesPartial.cshtml.g.cs

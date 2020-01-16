@@ -28,7 +28,7 @@ namespace SkijumpingTeams.Controllers
         }
 
         // GET: Teams/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> DetailsJumpers(int? id)
         {
             if (id == null)
             {
@@ -42,12 +42,33 @@ namespace SkijumpingTeams.Controllers
                 return NotFound();
             }
             IEnumerable<Jumper> jumpers = _context.Jumpers.Where(s => s.TeamID == team.ID);
-            IEnumerable<Coach> coaches = _context.Coaches.Where(s => s.TeamID == team.ID);
 
             TeamViewModel teamViewModel = new TeamViewModel()
             {
                 Team = team,
                 Jumpers = jumpers,
+            };
+
+            return View(teamViewModel);
+        }
+        public async Task<IActionResult> DetailsCoaches(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var team = await _context.Teams
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (team == null)
+            {
+                return NotFound();
+            }
+            IEnumerable<Coach> coaches = _context.Coaches.Where(s => s.TeamID == team.ID);
+
+            TeamViewModel teamViewModel = new TeamViewModel()
+            {
+                Team = team,
                 Coaches = coaches
             };
 

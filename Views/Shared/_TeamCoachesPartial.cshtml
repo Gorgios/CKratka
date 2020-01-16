@@ -1,17 +1,15 @@
-﻿@model SkijumpingTeams.Models.Jumper
+﻿@model SkijumpingTeams.Models.Coach
 
 <div class="content">
         <img src="@Url.Content(Model.PhotoLink)" alt="" height="400" width="300">
-        <h3> Jumper info</h3>
+        <h3> Coach info</h3>
         <p>
             <span>Name:</span>
             @Html.DisplayFor(modelItem => Model.FirstName)
             <span>@Html.DisplayFor(modelItem => Model.LastName)</span><br/>
-            <span>Personal Best:</span>
-            @Html.DisplayFor(modelItem => Model.PersonalBest)
+            <span>Postion:</span>
+            @Html.DisplayFor(modelItem => Model.Postion)
             <span>m</span><br />
-            <span>Carrer wins:</span>
-            @Html.DisplayFor(modelItem => Model.CarrerWins)<br />
             <span>Birthday:</span>
             @Html.DisplayFor(modelItem => Model.DateOfBirth)<br />
         </p>
