@@ -15,7 +15,7 @@ namespace SkijumpingTeams.Models
         [Url]
         [Display(Name = "Image link")]
         public string PhotoLink { get; set; }
-        public List<Jumper> Jumpers { get; set; }
-        public List<Coach> Coaches { get; set; }
+        public IEnumerable<Jumper> Jumpers { get; set; }
+        public IEnumerable<Coach> Coaches { get; set; }
     }
 }

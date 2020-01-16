@@ -1,3 +1,5 @@
 ﻿@{
+    var username = Context.User.Identity.IsAuthenticated;
+    Console.WriteLine(username);
     Layout = "_Layout";
 }

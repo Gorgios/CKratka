@@ -30,14 +30,15 @@ namespace SkijumpingTeams
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -50,6 +51,7 @@ namespace SkijumpingTeams
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -65,6 +67,81 @@ namespace SkijumpingTeams
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            CreateRoles(serviceProvider);
+            AddUsersToRoles(serviceProvider);
+        }
+        private static void CreateRoles(IServiceProvider serviceProvider)
+        {
+            string[] roles = { "Admin", "User" };
+            foreach (string roleName in roles)
+            {
+                CreateRole(serviceProvider, roleName);
+            }
+        }
+
+        private static void CreateRole(IServiceProvider serviceProvider, string roleName)
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            Task<bool> roleExists = roleManager.RoleExistsAsync(roleName);
+            roleExists.Wait();
+
+            if (!roleExists.Result)
+            {
+                Task<IdentityResult> roleResult = roleManager.CreateAsync(new IdentityRole(roleName));
+                roleResult.Wait();
+            }
+        }
+
+        private static void AddUsersToRoles(IServiceProvider serviceProvider)
+        {
+            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            var checkAppUser1 = userManager.FindByEmailAsync("admin@wp.pl");
+            var checkAppUser2 = userManager.FindByEmailAsync("admin2@wp.pl");
+
+            var appUser1 = checkAppUser1.Result;
+            var appUser2 = checkAppUser2.Result;
+
+            if (checkAppUser1.Result == null)
+            {
+                var newAppUser = new IdentityUser
+                {
+                    Email = "admin@wp.pl",
+                    UserName = "admin@wp.pl"
+                };
+
+                var taskCreateAppUser = userManager.CreateAsync(newAppUser, "Qwerty1@");
+                taskCreateAppUser.Wait();
+
+                if (taskCreateAppUser.Result.Succeeded)
+                {
+                    appUser1 = newAppUser;
+                }
+
+            }
+
+            if (checkAppUser2.Result == null)
+            {
+                var newAppUser = new IdentityUser
+                {
+                    Email = "admin2@wp.pl",
+                    UserName = "admin2@wp.pl"
+                };
+
+                var taskCreateAppUser = userManager.CreateAsync(newAppUser, "Qwerty1@");
+                taskCreateAppUser.Wait();
+
+                if (taskCreateAppUser.Result.Succeeded)
+                {
+                    appUser2 = newAppUser;
+                }
+
+            }
+            var newUserRole1 = userManager.AddToRoleAsync(appUser1, "Admin");
+            newUserRole1.Wait();
+            var newUserRole2 = userManager.AddToRoleAsync(appUser2, "User");
+            newUserRole2.Wait();
         }
     }
 }

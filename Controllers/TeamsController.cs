@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SkijumpingTeams.Data;
 using SkijumpingTeams.Models;
-
+using SkijumpingTeams.ViewModels;
 namespace SkijumpingTeams.Controllers
 {
+ 
     public class TeamsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -39,11 +41,21 @@ namespace SkijumpingTeams.Controllers
             {
                 return NotFound();
             }
+            IEnumerable<Jumper> jumpers = _context.Jumpers.Where(s => s.TeamID == team.ID);
+            IEnumerable<Coach> coaches = _context.Coaches.Where(s => s.TeamID == team.ID);
 
-            return View(team);
+            TeamViewModel teamViewModel = new TeamViewModel()
+            {
+                Team = team,
+                Jumpers = jumpers,
+                Coaches = coaches
+            };
+
+            return View(teamViewModel);
         }
 
         // GET: Teams/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +78,7 @@ namespace SkijumpingTeams.Controllers
         }
 
         // GET: Teams/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,6 +130,7 @@ namespace SkijumpingTeams.Controllers
         }
 
         // GET: Teams/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
