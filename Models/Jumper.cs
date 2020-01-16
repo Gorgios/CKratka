@@ -18,7 +18,7 @@ namespace SkijumpingTeams.Models
         [StringLength(30, ErrorMessage = "Last Name is way too long.")]
         [Display(Name = "Last Name")]
         public String LastName { get; set; }
-        [Range(0,300)]
+        [IsResult]
         [Display(Name = "Personal Best")]
         public float PersonalBest { get; set; }
         [Range(0, 1000, ErrorMessage = "Out of range of wins")]

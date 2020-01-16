@@ -6,6 +6,12 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+#layout {
+    background-image: url("https://s6.tvp.pl/images2/6/d/3/uid_6d30357f22e709f487f66ec5edbf0bd01546981412007_width_993_play_0_pos_0_gs_0_height_559.jpg");
+    background-size: cover;
+    font-weight: bolder;
+    color: #0366d6
+}
 
 /* Provide sufficient contrast against white background */
 a {
@@ -19,9 +25,9 @@ a {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
@@ -59,8 +65,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-weight: bolder;
+    color: #0366d6
 }
 .footer {
   position: absolute;
@@ -96,5 +104,36 @@ body {
         margin-left: 60px;
         display: block;
         margin: 2px 0 0 0;
+    }
+.jumpercont {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: lightslategrey;
+    border: 3px solid red;
+    padding: 20px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+}
+.jumpercont img{
+    align-content:center;
+    padding-bottom:40px;
+}
+    .jumpercont dd {
+        color: darkblue;
+        font-weight: bold;
+        font-size: 40px;
+        margin-bottom: 25px;
+        margin-right: 20%;
+        margin-left : 10%;
+        text-align:right;
+    }
+    .jumpercont dt {
+        font-weight: bold;
+        font-size: 40px;
+        margin-bottom: 25px;
+        margin-left: 20%;
+        text-align: left;
     }
    

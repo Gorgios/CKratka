@@ -6,13 +6,10 @@
         <p>
             <span>Name:</span>
             @Html.DisplayFor(modelItem => Model.FirstName)
-            <span>@Html.DisplayFor(modelItem => Model.LastName)</span><br/>
-            <span>Personal Best:</span>
-            @Html.DisplayFor(modelItem => Model.PersonalBest)
-            <span>m</span><br />
-            <span>Carrer wins:</span>
-            @Html.DisplayFor(modelItem => Model.CarrerWins)<br />
+            <span>@Html.DisplayFor(modelItem => Model.LastName)</span><br />
             <span>Birthday:</span>
             @Html.DisplayFor(modelItem => Model.DateOfBirth)<br />
+            <span>Full details: </span>
+            @Html.ActionLink("Details", "Details", "Jumpers", new { id = Model.ID }, null)
         </p>
 </div>

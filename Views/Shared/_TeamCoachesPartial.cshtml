@@ -6,11 +6,11 @@
         <p>
             <span>Name:</span>
             @Html.DisplayFor(modelItem => Model.FirstName)
-            <span>@Html.DisplayFor(modelItem => Model.LastName)</span><br/>
+            <span>@Html.DisplayFor(modelItem => Model.LastName)</span><br />
             <span>Postion:</span>
             @Html.DisplayFor(modelItem => Model.Postion)
             <span>m</span><br />
-            <span>Birthday:</span>
-            @Html.DisplayFor(modelItem => Model.DateOfBirth)<br />
+            <span>Full details:</span>
+            @Html.ActionLink("Details", "Details", "Coaches", new { id = Model.ID }, null)
         </p>
 </div>

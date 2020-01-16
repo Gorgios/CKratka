@@ -27,7 +27,6 @@ namespace SkijumpingTeams.Controllers
             var applicationDbContext = _context.Jumpers.Include(j => j.Team);
             return View(await applicationDbContext.ToListAsync());
         }
-
         // GET: Jumpers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
