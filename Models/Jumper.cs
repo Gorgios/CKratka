@@ -10,11 +10,13 @@ namespace SkijumpingTeams.Models
     public class Jumper
     {
         public int ID { get; set; }
+        [StartWithBigLetter]
         [Required]
         [StringLength(20, ErrorMessage = "First Name is way too long.")]
         [Display(Name = "First Name")]
         public String FirstName { get; set; }
         [Required]
+        [StartWithBigLetter]
         [StringLength(30, ErrorMessage = "Last Name is way too long.")]
         [Display(Name = "Last Name")]
         public String LastName { get; set; }

@@ -11,6 +11,7 @@ using SkijumpingTeams.Models;
 
 namespace SkijumpingTeams.Controllers
 {
+    [Authorize]
     public class CoachesController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkijumpingTeams.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace SkijumpingTeams.Models
     {
         public int ID { get; set; }
         [Required]
+        [StartWithBigLetter]
         [StringLength(50, ErrorMessage = "Max lenght of Nation is 50")]
         public string Nation { get; set; }
         [Url]

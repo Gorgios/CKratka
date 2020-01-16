@@ -223,3 +223,4 @@ D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MainHeader.cshtml.
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\DetailsCoaches.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Teams\DetailsJumpers.cshtml.g.cs
 D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TeamCoachesPartial.cshtml.g.cs
+D:\SkijumpingTeams\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Footer.cshtml.g.cs
